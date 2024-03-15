@@ -1,5 +1,6 @@
 import uvicorn
 from fastapi import FastAPI
+from loguru import logger
 
 from app_config import APP, PORT, HOST
 from logger.logger import initialize_logger
@@ -13,6 +14,7 @@ def main():
 
 
 def run_server():
+    logger.info(f"server listening on port {PORT}")
     uvicorn.run(APP, port=PORT, host=HOST)
 
 
