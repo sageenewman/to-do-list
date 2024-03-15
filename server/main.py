@@ -1,5 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
+
+from app_config import APP, PORT, HOST
 from logger.logger import initialize_logger
 
 app = FastAPI()
@@ -11,7 +13,7 @@ def main():
 
 
 def run_server():
-    uvicorn.run("main:app", port=8080, host="127.0.0.1")
+    uvicorn.run(APP, port=PORT, host=HOST)
 
 
 if __name__ == '__main__':
