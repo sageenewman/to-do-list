@@ -9,6 +9,7 @@ from mission.mission_router import mission_router
 app = FastAPI()
 app.include_router(mission_router)
 
+
 def main():
     initialize_logger()
     run_server()
