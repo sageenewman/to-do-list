@@ -1,10 +1,9 @@
 from fastapi import APIRouter
 
-from app_config import LOCAL_MONGO, TO_DO_LIST_DB, MISSIONS_COLLECTION
+from app_config import TO_DO_LIST_DB, MISSIONS_COLLECTION
 from dbs.db_client.abstract_client import DBClient
 from dbs.mongo_db.mongo_connection import MongoClient
 from dbs.mongo_db.mongo_query_executor import MongoQueryExecutor
-from dbs.query_executor.abstract_query_executor import QueryExecutor
 from mission.mission_basemodel import Mission
 
 mission_router = APIRouter()
