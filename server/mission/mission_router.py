@@ -11,6 +11,8 @@ from mission.mission_basemodel import Mission
 mission_router = APIRouter()
 
 MONGO_CONNECTION_STRING = os.getenv('MONGO_CONNECTION_STRING')
+
+
 @mission_router.post('/create-mission')
 def create_mission(mission: Mission):
     mongo_client: DBClient = MongoClient(MONGO_CONNECTION_STRING)
