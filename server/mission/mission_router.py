@@ -1,3 +1,5 @@
+import os
+
 from fastapi import APIRouter
 
 from app_config import TO_DO_LIST_DB, MISSIONS_COLLECTION
@@ -8,10 +10,10 @@ from mission.mission_basemodel import Mission
 
 mission_router = APIRouter()
 
-
+MONGO_CONNECTION_STRING = os.getenv('MONGO_CONNECTION_STRING')
 @mission_router.post('/create-mission')
 def create_mission(mission: Mission):
-    mongo_client: DBClient = MongoClient(LOCAL_MONGO)
+    mongo_client: DBClient = MongoClient(MONGO_CONNECTION_STRING)
     query_executor: MongoQueryExecutor = MongoQueryExecutor(mongo_client.client)
     query_executor.set_db(TO_DO_LIST_DB)
     query_executor.set_collection(MISSIONS_COLLECTION)
